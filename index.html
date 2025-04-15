@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- css -->
+  </head>
+  <body>
+    <h1 class="text-center m-10">To Do List</h1>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-10 mx-10"
+    >
+      <div class="profil p-5">
+        <h2>Profil</h2>
+        <hr />
+        <p>Nama: Muhammad Rizki Pratama</p>
+        <p>Jabatan: Web Developer</p>
+      </div>
+      <div class="inputTodo p-5">
+        <h2>To Do</h2>
+        <hr />
+        <!-- input -->
+
+        <div class="inputText py-1">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="input To Do List Anda"
+            style="
+              border: 1px solid black;
+              border-radius: 5px;
+              padding: 3px;
+              box-sizing: border-box;
+              width: 100%;
+            "
+          />
+          <div class="checkBox-level">
+            <label for="">Level :</label>
+            <select id="level">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+        </div>
+
+        <button
+          style="
+            border: 1px solid black;
+            background-color: blue;
+            border-radius: 5px;
+            color: white;
+            padding: 3px;
+          "
+          id="addBtn"
+        >
+          Submit
+        </button>
+        <!-- input -->
+      </div>
+
+      <div class="todoList p-5">
+        <h2>List To Do</h2>
+        <hr />
+        <p>list to do yg sudah di input</p>
+        <ul id="taskList"></ul>
+      </div>
+      <div class="listDone p-5">
+        <h2>List To Do Done</h2>
+        <hr />
+        <p>status list to do done</p>
+        <ul id="listDone"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
