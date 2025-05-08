@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         datetime: getCurrentDateTime(), // Tambahkan waktu saat ini
       };
       tasksLocalStorage.push(newTask);
-      localStorage.setItem("tasks", JSON.stringify(tasksLocalStorage));
+      localStorage.setItem("tasksAdd", JSON.stringify(tasksLocalStorage));
       taskInput.value = "";
       renderTasks();
     }
@@ -92,14 +92,17 @@ document.addEventListener("DOMContentLoaded", function () {
   //   tanda task kumplit
   function tandaTasksKumplit(index) {
     tasksLocalStorage[index].completed = !tasksLocalStorage[index].completed;
-    localStorage.setItem("tasks", JSON.stringify(tasksLocalStorage));
+    localStorage.setItem(
+      "keyTasksCompleted",
+      JSON.stringify(tasksLocalStorage)
+    ); // keyTasks dapat diset bebas
     renderTasks();
   }
 
   //   delete task
   function deleteTask(index) {
     tasksLocalStorage.splice(index, 1);
-    localStorage.setItem("tasks", JSON.stringify(tasksLocalStorage));
+    localStorage.setItem("tasksDelete", JSON.stringify(tasksLocalStorage));
     renderTasks();
   }
 
@@ -125,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // delete semua task yang sudah selesai
   function deleteAllDoneTasks() {
-    tasksLocalStorage = tasksLocalStorage.filter((task) => !task.completed);
-    localStorage.setItem("tasks", JSON.stringify(tasksLocalStorage));
+    tasksLocalStorage = tasksLocalStorage.filter((task) => !task.completed); //!task.completed artinya task yang belum selesai
+    localStorage.setItem("tasksDeleteAll", JSON.stringify(tasksLocalStorage));
     renderTasks();
   }
 
